@@ -1,0 +1,72 @@
+
+ <!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Cadastrar Novo Produto</title>
+<link rel="stylesheet" href="cadastrar_novo_produto.css" />
+</head>
+<body>
+  <header>CronoSys</header>
+  <h2>Novo produto</h2>
+  <form>
+    <div class="form-row">
+      <label for="codigo">Codigo</label>
+      <input type="text" id="codigo" name="codigo" />
+    </div>
+    <div class="form-row">
+      <label for="nomeProduto">Nome produto</label>
+      <input type="text" id="nomeProduto" name="nomeProduto" />
+    </div>
+    <div class="form-row">
+      <label for="categoria">Categoria</label>
+      <select id="categoria" name="categoria">
+        <option value="" disabled selected>Selecione a categoria</option>
+        <option value="alimentacao">Alimentação</option>
+        <option value="higiene_cuidados">Higiene e Cuidados</option>
+        <option value="produto_ambiente">Produto para ambiente</option>
+        <option value="brinquedos">Brinquedos</option>
+        <option value="brinquedos">Saúde e Bem-Estar</option>
+         <option value="brinquedos">Acessórios</option>
+      </select>
+    </div>
+    <div class="form-row">
+      <label for="descricao">Descrição</label>
+      <input type="text" id="descricao" name="descricao" />
+    </div>
+    <div class="form-row">
+      <label for="preco">Preço</label>
+      <input type="text" id="preco" name="preco" />
+    </div>
+    <div class="form-row">
+      <label for="quantidade">Quantidade</label>
+      <input type="number" id="quantidade" name="quantidade" />
+    </div>
+    <div class="form-row">
+      <label for="local">Local</label>
+      <select id="local" name="local">
+        <option value="" disabled selected>Selecione o local</option>
+        <option value="Prateleira_A">Prateleira A </option>
+        <option value="Prateleira_B">Prateleira B</option>
+        <option value="Prateleir_C">Prateleira C</option>
+        <option value="Prateleira_D">Prateleira D</option>
+        <option value="Prateleira_E">Prateleira E</option>
+        <option value="Prateleira_F">Prateleira F</option>
+        <option value="Prateleira_G">Prateleira G</option>
+        <option value="Prateleira_H">Prateleira H</option>
+        <option value="Prateleira_I">Prateleira I</option>
+        <option value="Prateleira_J">Prateleira J</option>
+      </select>
+    </div>
+    <div class="buttons">
+      <button type="button" class="cancel">Cancelar cadastro</button>
+      <button type="submit">Salvar</button>
+      <button type="button" onclick="window.location.href='localizar_produtos.html'" style="margin-left: 10px;">Localizar Produtos</button>
+      <button type="button" onclick="window.location.href='menu_principal.html'" style="margin-left: 10px;">Voltar</button>
+    </div>
+  </form>
+  
+  <script src="cadastrar_novo_produto.js"></script>
+</body>
+</html>

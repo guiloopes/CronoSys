@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Cadastrar Vendas</title>
+    <link rel="stylesheet" href="cadastrar_vendas.css" />
+</head>
+
+<body>
+    <h1>Cadastrar Vendas</h1>
+    <form id="salesForm">
+        <label for="saleDate">Data</label>
+        <input type="date" id="saleDate" name="saleDate" required />
+
+        <label for="product">Produto</label>
+        <input type="text" id="product" name="product" required />
+
+        <label for="quantity">Quantidade</label>
+        <input type="number" id="quantity" name="quantity" min="1" required />
+
+        <label for="total">Total (R$)</label>
+        <input type="text" id="total" name="total" required />
+
+        <button type="submit">Salvar Venda</button>
+    </form>
+    <button class="back-button" onclick="window.location.href='historico_de_vendas.html'"> Histórico de Vendas</button>
+    <button class="back-button" onclick="window.location.href='menu_principal.html'"> Menu Principal</button>
+
+    <script src="cadastrar_vendas.js"></script>
+</body>
+
+</html>

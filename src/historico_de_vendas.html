@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Histórico de Vendas</title>
+    <link rel="stylesheet" href="historico_de_vendas.css" />
+</head>
+
+<body>
+    <header>
+        <h1>Historico de Vendas</h1>
+    </header>
+    <section class="filter-section">
+        <label for="dateFilter">data</data></label>
+        <input type="date" id="dateFilter" name="dateFilter" />
+        <button>Filtro</button>
+    </section>
+    <section class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Data</th>
+                    <th>Produto</th>
+                    <th>Quantidade</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody id="salesTableBody">
+                <!-- Sales data will be populated here -->
+            </tbody>
+        </table>
+    </section>
+    <section class="search-section">
+        <input type="text" placeholder="Produto" id="productSearch" />
+        <button id="searchButton">🔍</button>
+    </section>
+    <button class="back-button" onclick="window.location.href='menu_principal.html'">Voltar</button>
+    <script src="historico_de_vendas.js"></script>
+</body>
+
+</html>

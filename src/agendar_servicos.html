@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Agendar Serviços</title>
+  <link rel="stylesheet" href="agendar_servicos.css" />
+</head>
+
+<body>
+  <header>CronoSys</header>
+  <main>
+    <h2>Agendar serviços</h2>
+    <form id="scheduleForm">
+      <label for="nomePet">Nome do Pet</label>
+      <input type="text" id="nomePet" name="nomePet" required />
+
+      <label for="nomeDono">Nome do Dono</label>
+      <input type="text" id="nomeDono" name="nomeDono" required />
+
+      <label for="telefoneContato">Telefone de contato</label>
+      <input type="tel" id="telefoneContato" name="telefoneContato" required pattern="[0-9\s\-\+\(\)]+" />
+
+      <label for="servico">Serviço</label>
+      <select id="servico" name="servico" required>
+        <option value="" disabled selected>Selecione o Serviço</option>
+        <option value="banho">Banho</option>
+        <option value="tosa">Tosa</option>
+        <option value="consulta">Consulta</option>
+        <option value="vacina">Vacina</option>
+      </select>
+
+      <label for="data">Data</label>
+      <input type="date" id="data" name="data" required />
+
+      <label for="hora">Hora</label>
+      <input type="time" id="hora" name="hora" required />
+
+      <div class="buttons">
+        <button type="submit">Confirmar</button>
+        <button type="button" onclick="window.location.href='visualizar_servicos.html'">Visualizar Serviços</button>
+        <button type="button" onclick="window.location.href='menu_principal.html'">Voltar</button>
+      </div>
+    </form>
+  </main>
+
+  <script src="agendar_servicos.js"></script>
+</body>
+
+</html>

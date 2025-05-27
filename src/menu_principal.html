@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Menu Principal</title>
+    <link rel="stylesheet" href="menu_principal.css" />
+</head>
+<body>
+    <header>
+        <h1>Menu Principal</h1>
+        <div id="hamburger" aria-label="Menu" tabindex="0">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+    </header>
+    <nav>
+        <ul class="menu">
+            <li class="menu-item" onclick="window.location.href='cadastrar_novo_produto.html'">Cadastrar Novo Produto</li>
+            <li class="menu-item" onclick="window.location.href='localizar_produtos.html'">Localizar Produtos</li>
+            <li class="menu-item" onclick="window.location.href='agendar_servicos.html'">Agendar Serviços</li>
+            <li class="menu-item" onclick="window.location.href='visualizar_servicos.html'">Servicos Agendados</li>
+            <li class="menu-item" onclick="window.location.href='cadastrar_vendas.html'">Cadastrar Vendas</li>
+            <li class="menu-item" onclick="window.location.href='historico_de_vendas.html'">Historico de Vendas</li>
+             <li class="menu-item" onclick="window.location.href='cadastrar_pet.html'">Cadastrar Pet</li>
+            <li class="menu-item" onclick="window.location.href='pets_disponiveis.html'">Pets disponiveis para adoção</li>
+        </ul>
+        <button id="loginButton" onclick="window.location.href='index.html'">Login</button>
+    </nav>
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const menu = document.querySelector('nav ul.menu');
+        const loginButton = document.getElementById('loginButton');
+
+        function toggleMenu() {
+            menu.classList.toggle('show');
+            loginButton.classList.toggle('show');
+        }
+
+        hamburger.addEventListener('click', toggleMenu);
+        hamburger.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                toggleMenu();
+            }
+        });
+    </script>
+</body>
+</html>

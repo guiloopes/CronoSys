@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cadastro de Pet para Adoção</title>
+  <style>
+    /* Reset and base styles */
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f0f4f8;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background-color: #2c3e50;
+      color: #ecf0f1;
+      padding: 20px;
+      text-align: center;
+      font-size: 1.8rem;
+      font-weight: 700;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    main {
+      flex: 1;
+      max-width: 900px;
+      margin: 30px auto;
+      background: #fff;
+      padding: 30px 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(44, 62, 80, 0.2);
+    }
+
+    h2 {
+      font-weight: 700;
+      font-size: 2rem;
+      margin-bottom: 25px;
+      color: #34495e;
+      border-bottom: 3px solid #2980b9;
+      padding-bottom: 10px;
+    }
+
+    form {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+
+    .form-left {
+      flex: 1 1 60%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .form-left label {
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #2c3e50;
+    }
+
+    .form-left input[type="text"],
+    .form-left textarea {
+      padding: 10px 12px;
+      font-size: 1rem;
+      border: 1px solid #949a9f;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      transition: border-color 0.3s ease;
+      font-family: inherit;
+    }
+
+    .form-left input[type="text"]:focus,
+    .form-left textarea:focus {
+      border-color: #2980b9;
+      outline: none;
+      box-shadow: 0 0 8px rgba(41, 128, 185, 0.5);
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    .form-right {
+      flex: 1 1 35%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 15px;
+      padding: 15px;
+      border: 2px dashed #2980b9;
+      border-radius: 12px;
+      background: #eaf3fc;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      position: relative;
+      min-height: 180px;
+    }
+
+    .form-right:hover {
+      background-color: #d4e3fb;
+    }
+
+    .form-right label {
+      font-style: normal;
+      color: #2980b9;
+      font-weight: 600;
+      cursor: pointer;
+      user-select: none;
+      text-align: center;
+      width: 100%;
+    }
+
+    .form-right input[type="file"] {
+      display: none;
+    }
+
+    #previewImagemPet {
+      max-width: 100%;
+      max-height: 140px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+      object-fit: contain;
+      margin-top: 10px;
+      display: none;
+    }
+
+    button.submit-btn {
+      background-color: #2980b9;
+      color: white;
+      font-weight: 700;
+      font-size: 1.1rem;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 10px;
+      cursor: pointer;
+      align-self: flex-start;
+      transition: background-color 0.3s ease;
+      margin-top: 10px;
+    }
+
+    button.submit-btn:hover {
+      background-color: #1c5980;
+    }
+
+    section.pets-available {
+      margin-top: 40px;
+    }
+
+    section.pets-available h3 {
+      font-weight: 700;
+      margin-bottom: 15px;
+      color: #34495e;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    th,
+    td {
+      padding: 12px 15px;
+      text-align: left;
+      font-weight: 500;
+      color: #2c3e50;
+      background: white;
+      border-bottom: 1px solid #ecf0f1;
+    }
+
+    th {
+      background: #2980b9;
+      color: white;
+      font-weight: 700;
+    }
+
+    td.image-cell {
+      width: 60px;
+      height: 60px;
+      text-align: center;
+      vertical-align: middle;
+      user-select: none;
+    }
+
+    .button-container {
+      margin-top: 30px;
+      text-align: right;
+    }
+
+    button.back-btn {
+      background:#7f8c8d;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 10px;
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button.back-btn:hover {
+      background-color:#636e72;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      main {
+        margin: 20px 15px;
+        padding: 20px;
+      }
+
+      form {
+        flex-direction: column;
+      }
+
+      .form-left,
+      .form-right {
+        flex: 1 1 100%;
+      }
+
+      .form-right {
+        min-height: 150px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div style="background-color:#2c3e50; color:#ecf0f1; padding: 20px; text-align: center; font-size: 1.8rem; font-weight: 700; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+      CronoSys
+    </div>
+    <nav style="background-color:#34495e; padding: 10px; display: flex; justify-content: center; gap: 15px;">
+     
+    </nav>
+  </header>
+  <main>
+    <h2>Cadastro de Pet para Adoção</h2>
+    <form id="petForm">
+      <div class="form-left">
+        <label for="nomePet">Nome do Pet</label>
+        <input type="text" id="nomePet" name="nomePet" required />
+
+        <label for="racaPet">Raça</label>
+        <input type="text" id="racaPet" name="racaPet" required />
+
+        <label for="idadePet">Idade</label>
+        <input type="text" id="idadePet" name="idadePet" required />
+
+        <label for="descricaoPet">Descrição</label>
+        <textarea id="descricaoPet" name="descricaoPet" required></textarea>
+
+        <button type="submit" class="submit-btn">Cadastrar pet</button>
+      </div>
+      <div class="form-right" tabindex="0">
+        <label for="imagemPet">Clique para anexar imagem</label>
+        <input type="file" id="imagemPet" name="imagemPet" accept="image/*" required />
+        <img id="previewImagemPet" src="" alt="Pré-visualização da imagem" />
+      </div>
+    </form>
+
+    <!-- Removed pets available section as per user request -->
+
+    <div class="button-container">
+      <button class="back-btn" onclick="window.location.href='pets_disponiveis.html'">Ver Pets Disponíveis</button>
+    </div>
+    <div class="button-container" style="margin-top: 10px; text-align: right;">
+      <button class="back-btn" onclick="window.location.href='menu_principal.html'">Voltar</button>
+    </div>
+  </main>
+
+  <script>
+    const inputImagemPet = document.getElementById('imagemPet');
+    const previewImagemPet = document.getElementById('previewImagemPet');
+    const petForm = document.getElementById('petForm');
+
+    inputImagemPet.addEventListener('change', function () {
+      const file = this.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          previewImagemPet.src = e.target.result;
+          previewImagemPet.style.display = 'block';
+        };
+        reader.readAsDataURL(file);
+      } else {
+        previewImagemPet.src = '';
+        previewImagemPet.style.display = 'none';
+      }
+    });
+
+    petForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const nomePet = document.getElementById('nomePet').value.trim();
+      const racaPet = document.getElementById('racaPet').value.trim();
+      const idadePet = document.getElementById('idadePet').value.trim();
+      const descricaoPet = document.getElementById('descricaoPet').value.trim();
+
+      if (!nomePet || !racaPet || !idadePet || !descricaoPet) {
+        alert('Por favor, preencha todos os campos.');
+        return;
+      }
+
+      const file = inputImagemPet.files[0];
+      if (!file) {
+        alert('Por favor, anexe uma imagem do pet.');
+        return;
+      }
+
+      const reader = new FileReader();
+      reader.onload = function (event) {
+        const imageDataUrl = event.target.result;
+
+        // Get existing pets from localStorage or initialize empty array
+        const pets = JSON.parse(localStorage.getItem('pets')) || [];
+
+        // Add new pet
+        pets.push({
+          nome: nomePet,
+          raca: racaPet,
+          idade: idadePet,
+          descricao: descricaoPet,
+          imagem: imageDataUrl,
+          status: 'Disponível'
+        });
+
+        // Save back to localStorage
+        localStorage.setItem('pets', JSON.stringify(pets));
+
+        alert('Pet cadastrado com sucesso!');
+
+        // Optionally reset form
+        petForm.reset();
+        previewImagemPet.src = '';
+        previewImagemPet.style.display = 'none';
+
+        // Redirect to pets disponiveis page
+        window.location.href = 'pets_disponiveis.html';
+      };
+      reader.readAsDataURL(file);
+    });
+  </script>
+</body>
+
+</html>

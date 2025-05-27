@@ -1,0 +1,151 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #74ebd5 0%, #ACB6E5 100%);
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+header {
+    background-color: rgba(0, 0, 0, 0.3);
+    color: rgb(255, 255, 255);
+    padding: 1.5rem 3rem;
+    text-align: left;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    font-weight: 700;
+    font-size: 2rem;
+    letter-spacing: 1px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#hamburger {
+    width: 35px;
+    height: 30px;
+    cursor: pointer;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    z-index: 1100;
+}
+
+#hamburger .bar {
+    height: 5px;
+    width: 100%;
+    background-color: white;
+    border-radius: 3px;
+}
+
+nav {
+    max-width: 400px;
+    margin: 3rem auto;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    padding: 2rem 1.5rem;
+    transition: max-height 0.3s ease;
+}
+
+ul.menu {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+ul.menu li.menu-item {
+    background-color: #4a90e2;
+    color: rgb(255, 255, 255);
+    padding: 1.8rem 2rem;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(74, 144, 226, 0.6);
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 1.3rem;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    user-select: none;
+}
+
+ul.menu li.menu-item:hover {
+    background-color: #357ABD;
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(53, 122, 189, 0.8);
+}
+
+ul.menu li.menu-item:active {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(53, 122, 189, 0.7);
+}
+
+#loginButton {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #4a90e2;
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 15px;
+    font-weight: 700;
+    font-size: 1.2rem;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(74, 144, 226, 0.6);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    z-index: 1000;
+}
+
+#loginButton:hover {
+    background-color: #357ABD;
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(53, 122, 189, 0.8);
+}
+
+#loginButton:active {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(53, 122, 189, 0.7);
+}
+
+nav ul.menu.show,
+#loginButton.show {
+    display: block !important;
+}
+
+@media (max-width: 768px) {
+    #hamburger {
+        display: flex;
+    }
+
+    nav ul.menu {
+        display: none;
+        flex-direction: column;
+    }
+
+    #loginButton {
+        display: none;
+    }
+}
+
+nav ul.menu.show,
+#loginButton.show {
+    display: block !important;
+}
+
+@media (max-width: 768px) {
+    #hamburger {
+        display: flex;
+    }
+
+    nav ul.menu {
+        display: none;
+        grid-template-columns: 1fr;
+    }
+
+    #loginButton {
+        display: none;
+    }
+}

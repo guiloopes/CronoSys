@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Localizar Produtos</title>
+  <link rel="stylesheet" href="localizar_produtos.css" />
+</head>
+<body>
+  <header>CronoSys</header>
+  <main>
+    <h2>Localizar Produtos</h2>
+    <form id="searchForm">
+<input type="text" id="searchInput" name="searchInput" placeholder="Digite o código do produto" />
+      <button type="submit">Buscar</button>
+      <br />
+      <button type="button" onclick="window.location.href='menu_principal.html'" style="margin-top: 10px;">Voltar</button>
+    </form>
+    <div id="productList" style="margin-top: 1rem;"></div>
+  </main>
+  
+  <script src="localizar_produtos.js"></script>
+</body>
+</html>
