@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CronoSys</title>
+    <link rel="stylesheet" href="index.css" />
+    <style>
+        #supportButton {
+            background-color: #4a90e2;
+            color: rgb(255, 255, 255);
+            border: none;
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 0.8rem;
+            box-shadow: 0 4px 8px rgba(74, 144, 226, 0.4);
+            transition: background-color 0.3s ease;
+            margin-top: 0.5rem;
+            display: block;
+            width: 100%;
+        }
+        #supportButton:hover {
+            background-color: #357ABD;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>CronoSys</h2>
+        <form id="loginForm">
+            <label for="username">Usuário</label>
+            <input type="text" id="username" name="username" placeholder="Digite seu usuário" required />
+            <label for="password">Senha</label>
+            <input type="password" id="password" name="password" placeholder="Digite sua senha" required />
+            <button type="submit">Entrar</button>
+            <button id="supportButton" type="button">Suporte</button>
+        </form>
+    </div>
+    <script src="index.js"></script>
+    <script>
+        document.getElementById('supportButton').addEventListener('click', function() {
+            window.location.href = 'suporte.html';
+        });
+    </script>
+</body>
+</html>
